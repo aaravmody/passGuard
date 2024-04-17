@@ -49,7 +49,17 @@ const Manager = () => {
         localStorage.setItem("password", JSON.stringify([...passwordArray, {...form,id: uuidv4()}]))
         console.log([...passwordArray, form])
         setform({ site: "", username: "", password: "" })
-    }
+        toast.success('Password added successfully', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+}
 
     const deletePass = (id) => {
         console.log("Deleting pass")
@@ -88,18 +98,18 @@ const Manager = () => {
             {/* Same as */}
             <ToastContainer />
             <div className="absolute top-0 z-[-2] h-screen w-screen rotate-180 transform bg-white bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)]"></div>
-            <div className="mx-auto mycontainer">
+            <div className="mx-auto p-3 md:mycontainer">
                 <h1 className='text-4xl text-blue-900 text-center gap-2'>PassGuard</h1>
                 <p className='text-lg text-center py-2'>Your own Password Manager</p>
                 <div className='text-white flex flex-col p-4 gap-6 items-center'>
-                    <input value={form.site} onChange={handleChange} placeholder='Enter website URL' className='rounded-full border border-blue-800 w-full text-black p-4 py-1' type="text" name='site' id='' />
+                    <input value={form.site} onChange={handleChange} placeholder='Enter website URL' className='rounded-full border border-blue-800 w-full text-black p-4 py-1' type="text" name='site' id='site' />
 
-                    <div className='flex w-full justify-between gap-8'>
-                        <input value={form.username} onChange={handleChange} placeholder='Enter username' className='rounded-full border border-blue-800 w-full text-black p-4 py-1' type='text' name='username'>
+                    <div className='flex flex-col md:flex-row w-full justify-between gap-8'>
+                        <input value={form.username} onChange={handleChange} placeholder='Enter username' className='rounded-full border border-blue-800 w-full text-black p-4 py-1' type='text' name='username' id='username'>
                         </input>
 
                         <div className="relative">
-                            <input ref={passwordRef} value={form.password} onChange={handleChange} placeholder='Enter Password' className='rounded-full border border-blue-800 w-full text-black p-4 py-1' type='password' name='password' />
+                            <input ref={passwordRef} value={form.password} onChange={handleChange} placeholder='Enter Password' className='rounded-full border border-blue-800 w-full text-black p-4 py-1' type='password' name='password' id='password'/>
                             <span className='absolute right-[3px] top-[2px] cursor-pointer' onClick={showPass} >
                                 <img ref={ref} className='p-1' width={26} src="icons/eye.png" alt='eye' />
                             </span>
@@ -115,7 +125,7 @@ const Manager = () => {
                 <div className="passwords">
                     <h2 className='font-bold text-2xl py-4 text-blue-900'>Your Passwords </h2>
                     {passwordArray.length === 0 && <div> No passwords to show </div>}
-                    {passwordArray.length != 0 && <table className="table-auto w-full rounded-xl overflow-hidden">
+                    {passwordArray.length != 0 && <table className="table-auto w-full rounded-xl overflow-hidden mb-5">
                         <thead className='w-full bg-purple-800 text-white'>
                             <tr>
                                 <th className='py-2'>Website</th>
