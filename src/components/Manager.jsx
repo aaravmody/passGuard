@@ -19,12 +19,12 @@ const Manager = () => {
 
     const showPass = () => {
         ref.current
-        if (ref.current.src.includes("icons/eyecross.png")) {
-            ref.current.src = "icons/eye.png"
+        if (ref.current.src.includes("eyecross.png")) {
+            ref.current.src = "eye.png"
             passwordRef.current.type = "password"
         }
         else {
-            ref.current.src = "icons/eyecross.png"
+            ref.current.src = "eyecross.png"
             passwordRef.current.type = "text"
         }
     }
@@ -111,7 +111,7 @@ const Manager = () => {
                         <div className="relative">
                             <input ref={passwordRef} value={form.password} onChange={handleChange} placeholder='Enter Password' className='rounded-full border border-blue-800 w-full text-black p-4 py-1' type='password' name='password' id='password'/>
                             <span className='absolute right-[3px] top-[2px] cursor-pointer' onClick={showPass} >
-                                <img ref={ref} className='p-1' width={26} src="icons/eye.png" alt='eye' />
+                                <img ref={ref} className='p-1' width={26} src="eye.png" alt='eye' />
                             </span>
                         </div>
                     </div>
