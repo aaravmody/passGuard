@@ -14,7 +14,9 @@ const Navbar = () => {
                 <a className='hover:font-bold' href='#'>About</a>
             </li>
         </ul>
-
+        <button className='text-white rounded-md gap-2 '>
+        <img className='invert w-10 p-2' src="icons.github.png" alt="git" /> 
+          </button>
     </nav>
   )
 }
