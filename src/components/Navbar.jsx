@@ -1,4 +1,5 @@
 import React from 'react'
+import Contact from './Contact'
 
 const Navbar = () => {
   return (
@@ -7,7 +8,7 @@ const Navbar = () => {
     src="https://cdn.lordicon.com/pdwpcpva.json"
     trigger="hover">
 </lord-icon></div></div>
-<div className='justify-end flex gap-5 align-middle text-center pr-4'>
+<div className='justify-end flex gap-5 align-middle text-center pr-4 cursor-pointer'>
         <ul>
             <li className='flex gap-4'>
                 <a className='hover:font-bold' href='/'>Home</a>

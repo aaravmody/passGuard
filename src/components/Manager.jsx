@@ -136,18 +136,18 @@ const Manager = () => {
                     {passwordArray.length != 0 && <table className="table-auto w-full rounded-xl overflow-hidden mb-5">
                         <thead className='w-full bg-purple-800 text-white'>
                             <tr>
-                                <th className='py-2'>Website</th>
-                                <th className='py-2'>Username</th>
-                                <th className='py-2'>Password</th>
-                                <th className='py-2'>Actions</th>
+                                <th className='py-2 border border-white '>Website</th>
+                                <th className='py-2 border border-white '>Username</th>
+                                <th className='py-2 border border-white '>Password</th>
+                                <th className='py-2 border border-white '>Actions</th>
                             </tr>
                         </thead>
                         <tbody className='bg-green-300'>
                             {passwordArray.map((item, index) => {
                                 return <tr key={index}>
-                                    <td className='items-center justify-center text-center py-2 border border-white'><a href={item.site} target='_blank' >{item.site} </a> </td>
-                                    <td className='items-center justify-center text-center py-2 border border-white'>{item.username}</td>
-                                    <td className='items-center justify-center text-center py-2 h-30 border border-white flex gap-3'><span>{"*".repeat((JSON.stringify(item.password).length)-4)}</span> <img className='cursor-pointer' onClick={() => { copyText(item.password) }} src={copy} height={1} width={18} /></td>
+                                    <td className='items-center justify-center h-10 text-center py-2 border border-white text-xl'><a href={item.site} target='_blank' >{item.site} </a> </td>
+                                    <td className='items-center justify-center h-10 text-center py-2 border border-white text-xl'>{item.username}</td>
+                                    <td className='flex gap-3 items-center justify-center text-center border border-white border-collapse border-solid'><span className='items-center justify-center text-center text-3xl py-2 h-100'>{"*".repeat((JSON.stringify(item.password).length)-4)}</span> <img className='cursor-pointer' onClick={() => { copyText(item.password) }} src={copy} height={3} width={18} /></td>
                                     <td className='items-center justify-center text-center py-2 border border-white'> <span className='cursor-pointer mx-1 gap-4' onClick={()=> {{editPass(item.id)}}}>
                                         <lord-icon
                                             src="https://cdn.lordicon.com/ylvuooxd.json"
