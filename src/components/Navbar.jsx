@@ -7,7 +7,7 @@ const Navbar = () => {
     src="https://cdn.lordicon.com/pdwpcpva.json"
     trigger="hover">
 </lord-icon></div></div>
-<div className='justify-end flex gap-5'>
+<div className='justify-end flex gap-5 align-middle text-center pr-4'>
         <ul>
             <li className='flex gap-4'>
                 <a className='hover:font-bold' href='/'>Home</a>
@@ -15,10 +15,12 @@ const Navbar = () => {
                 <a className='hover:font-bold' href='#'>About</a>
             </li>
         </ul>
-        <button className='text-white rounded-md gap-2 '>
+        </div>
+        <div>
+
           <a href='https://github.com/aaravmody/passGuard'>
-        <img className='invert w-15 h-1 p-2 border border-white backdrop-grayscale-0 rounded-xl' src="github.png" alt="git" /> </a>
-          </button>
+        <img className='invert w-12 h-10 p-2 border border-white backdrop-grayscale-0 rounded-xl' src="github.png" alt="git" /> </a>
+
           </div>
     </nav>
   )

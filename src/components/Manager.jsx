@@ -44,6 +44,9 @@ const Manager = () => {
     }
 
     const savePass = () => {
+        console.log(form.site.length)
+        if(form.site && form.username && form.password)
+        {
         console.log(form)
         setpasswordArray([...passwordArray, {...form,id: uuidv4()}])
         localStorage.setItem("password", JSON.stringify([...passwordArray, {...form,id: uuidv4()}]))
@@ -59,6 +62,11 @@ const Manager = () => {
             progress: undefined,
             theme: "light",
         });
+    }
+    else
+    {
+        alert('cant have empty fields')
+    }
 }
 
     const deletePass = (id) => {
@@ -139,7 +147,7 @@ const Manager = () => {
                                 return <tr key={index}>
                                     <td className='items-center justify-center text-center py-2 border border-white'><a href={item.site} target='_blank' >{item.site} </a> </td>
                                     <td className='items-center justify-center text-center py-2 border border-white'>{item.username}</td>
-                                    <td className='items-center justify-center text-center py-2 h-30 border border-white flex gap-3'>{item.password} <img className='cursor-pointer' onClick={() => { copyText(item.password) }} src={copy} height={1} width={18} /></td>
+                                    <td className='items-center justify-center text-center py-2 h-30 border border-white flex gap-3'><span>{"*".repeat((JSON.stringify(item.password).length)-4)}</span> <img className='cursor-pointer' onClick={() => { copyText(item.password) }} src={copy} height={1} width={18} /></td>
                                     <td className='items-center justify-center text-center py-2 border border-white'> <span className='cursor-pointer mx-1 gap-4' onClick={()=> {{editPass(item.id)}}}>
                                         <lord-icon
                                             src="https://cdn.lordicon.com/ylvuooxd.json"
